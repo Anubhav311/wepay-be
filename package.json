@@ -1,0 +1,41 @@
+{
+  "name": "wepay-be",
+  "version": "1.0.0",
+  "description": "single point solution for automatic payment of all bills",
+  "main": "index.js",
+  "scripts": {
+    "start": "node cluster.js",
+    "server": "nodemon index.js",
+    "test": "cross-env DB_ENV=testing jest --detectOpenHandles --verbose --coverage --forceExit",
+    "watch": "cross-env DB_ENV=testing jest --verbose --watch",
+    "migrate": "knex migrate:latest",
+    "seed": "knex seed:run",
+    "rollback": "knex migrate:rollback --all",
+    "reset-db": "npm-run-all rollback migrate seed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/where-to-code/wtc-backend.git"
+  },
+  "author": "@Anubhav311",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/wepay-be/issues"
+  },
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "helmet": "^3.20.0",
+    "knex": "^0.19.2",
+    "morgan": "^1.9.1",
+    "pg": "^7.12.1"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.1",
+    "supertest": "^4.0.2"
+  }
+}
